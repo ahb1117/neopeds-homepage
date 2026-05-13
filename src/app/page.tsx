@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import Image from "next/image";
 
 /* ── Icon primitives ── */
 function HeartIcon() {
@@ -202,9 +203,14 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 bg-white/85 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
           <a href="/" className="flex items-center gap-2.5 no-underline">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-teal-500">
-              <HeartIcon />
-            </div>
+            <Image
+              src="/logo.png"
+              alt="NeoPeds logo — sleeping neonate in a neon heart"
+              width={36}
+              height={36}
+              className="rounded-xl"
+              priority
+            />
             <span className="text-xl font-bold tracking-tight text-slate-900">
               Neo<span className="text-blue-600">Peds</span>
             </span>
