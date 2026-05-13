@@ -36,12 +36,21 @@ export const metadata: Metadata = {
     description:
       "Free, evidence-based clinical decision-support tools for neonatology and pediatrics.",
     locale: "en_US",
+    images: [
+      {
+        url: `${siteUrl}/logo.png`,
+        width: 1024,
+        height: 1024,
+        alt: "NeoPeds — sleeping neonate in a neon heart with ECG line",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "NeoPeds — Clinical Tools for Neonatology & Pediatrics",
     description:
       "Free, evidence-based clinical decision-support tools for neonatology and pediatrics.",
+    images: [`${siteUrl}/logo.png`],
   },
   robots: {
     index: true,
