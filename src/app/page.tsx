@@ -3,7 +3,7 @@ import type { JSX } from "react";
 /* ── Icon primitives ── */
 function HeartIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
+    <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5" aria-hidden="true">
       <path d="M12 21s-9-6.5-9-12.5C3 5.42 5.42 3 8.5 3c1.74 0 3.31.81 3.5 1 .19-.19 1.76-1 3.5-1C18.58 3 21 5.42 21 8.5 21 14.5 12 21 12 21z" />
     </svg>
   );
@@ -18,6 +18,8 @@ function IVIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="w-6 h-6 stroke-blue-600"
+      role="img"
+      aria-label="IV drip representing total parenteral nutrition"
     >
       <path d="M8 2v4" />
       <path d="M16 2v4" />
@@ -39,6 +41,8 @@ function StethoscopeIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="w-6 h-6 stroke-teal-600"
+      role="img"
+      aria-label="Stethoscope representing pediatric clinical reference"
     >
       <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />
       <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" />
@@ -56,6 +60,7 @@ function ArrowUpRightIcon({ className }: { className?: string }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      aria-hidden="true"
     >
       <path d="M7 17L17 7M17 7H7M17 7V17" />
     </svg>
@@ -228,7 +233,7 @@ export default function Home() {
           <h1 className="mb-5 text-5xl font-bold leading-tight tracking-tight text-slate-900 sm:text-6xl">
             Clinical tools built for{" "}
             <span className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
-              the tiniest patients
+              Neonate &amp; Pediatric patients
             </span>
           </h1>
 
@@ -236,24 +241,6 @@ export default function Home() {
             Evidence-based calculators and references designed for neonatal and
             pediatric care teams.
           </p>
-
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-12">
-            {[
-              { num: "2", label: "Tools Available" },
-              { num: "NICU", label: "Focused" },
-              { num: "Free", label: "Always" },
-            ].map(({ num, label }) => (
-              <div key={label} className="flex flex-col items-center gap-0.5">
-                <span className="text-3xl font-bold tracking-tight text-blue-700">
-                  {num}
-                </span>
-                <span className="text-[0.72rem] font-semibold uppercase tracking-widest text-slate-400">
-                  {label}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -272,6 +259,79 @@ export default function Home() {
           {projects.map((p) => (
             <ProjectCard key={p.href} project={p} />
           ))}
+        </div>
+      </section>
+
+      {/* About the Author */}
+      <section className="border-t border-slate-200 bg-white px-6 py-20">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-10 text-center">
+            <p className="mb-2 text-[0.72rem] font-bold uppercase tracking-widest text-teal-600">
+              About the Author
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
+              The clinician behind the tools
+            </h2>
+          </div>
+
+          <div className="flex flex-col items-center gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 sm:flex-row sm:items-start sm:gap-10">
+            {/* Avatar */}
+            <div className="flex-shrink-0">
+              <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-teal-500 text-2xl font-bold text-white shadow-lg">
+                AHB
+              </div>
+            </div>
+
+            {/* Info */}
+            <div className="flex-1 text-center sm:text-left">
+              <h3 className="text-2xl font-bold tracking-tight text-slate-900">
+                Ahmed Hussain Buzaid
+              </h3>
+
+              <div className="mt-2 flex flex-wrap justify-center gap-2 sm:justify-start">
+                {[
+                  "MD",
+                  "Neonatologist",
+                  "Saudi Fellowship Certified Neonatologist",
+                  "Saudi Board Certified Pediatrician",
+                ].map((badge) => (
+                  <span
+                    key={badge}
+                    className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[0.72rem] font-semibold text-blue-700"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+
+              <p className="mt-4 max-w-xl text-[0.94rem] leading-relaxed text-slate-500">
+                Dr. Buzaid is a board-certified pediatrician and fellowship-trained
+                neonatologist dedicated to improving bedside care through
+                accessible, evidence-based clinical tools. NeoPeds was built to
+                give care teams fast, reliable references during critical moments
+                in the NICU and pediatric ward.
+              </p>
+
+              <a
+                href="mailto:ahb1117@gmail.com"
+                className="mt-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2 text-[0.85rem] font-semibold text-slate-700 shadow-sm transition-all hover:border-blue-300 hover:text-blue-600 hover:shadow-md"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                ahb1117@gmail.com
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
