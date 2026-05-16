@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NeoPeds - Medical Resource for Neonatology &amp; Pediatrics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#213145",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9ff",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary-fixed": "#001f24",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#4c5d8b",
+                        "inverse-primary": "#89d2de",
+                        "on-background": "#0b1c30",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#2b646a",
+                        "on-secondary-fixed-variant": "#344571",
+                        "secondary-fixed-dim": "#b4c5f9",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#a4eefb",
+                        "tertiary-fixed": "#b4ecf3",
+                        "outline-variant": "#bec8ca",
+                        "on-secondary-container": "#445582",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#f5feff",
+                        "on-primary-fixed-variant": "#004f57",
+                        "surface-container-high": "#dce9ff",
+                        "primary": "#086670",
+                        "surface-tint": "#0e6873",
+                        "primary-fixed-dim": "#89d2de",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#f7feff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-container": "#e5eeff",
+                        "tertiary-container": "#467d83",
+                        "secondary-container": "#bacbff",
+                        "surface": "#f8f9ff",
+                        "on-surface": "#0b1c30",
+                        "secondary-fixed": "#dae2ff",
+                        "tertiary-fixed-dim": "#98d0d6",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-tertiary-fixed": "#002022",
+                        "surface-dim": "#cbdbf5",
+                        "on-secondary-fixed": "#031944",
+                        "background": "#f8f9ff",
+                        "outline": "#6f797b",
+                        "primary-container": "#317f8a",
+                        "on-surface-variant": "#3f484a",
+                        "on-tertiary-fixed-variant": "#0f4e54",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "lg": "48px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #086670 0%, #4c5d8b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-bright border-b border-outline-variant shadow-sm h-16">
+<div class="flex justify-between items-center h-full px-margin-desktop max-w-[1440px] mx-auto">
+<div class="flex items-center gap-base">
+<img alt="NeoPeds Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnNjZONCpfAThJ9XhsqrUS52y-tZxkzuPMF6Xb3uhPUeUisxgmUkC9p-qJw7iF7LljVL7sgK9Msi9s-cIimUfNVc3sGirTIVDDqL-53dpmCPy44e3fdo_JvfvFLxdyBiTy62M4u0UtYvrwotIlARxFwZLE-cYfF-wUZJNxXX4GuRUuNwW-2uhKUm0NjTbNKtLPLI2-DHe8DnFOSCCdSX9tUM6T36vHUuCwL14o2eFjoSicW2bUryNG7m7AJu3m2KWXkU5C35EsEF_P"/>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">NeoPeds</span>
+</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Resources</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Team</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 rounded-full bg-surface-container border-none focus:ring-2 focus:ring-primary/20 w-48 text-body-sm" placeholder="Search..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95 duration-100 ease-in-out">
+                    Book Appointment
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-surface-container-low min-h-[85vh] flex items-center">
+<div class="max-w-[1440px] mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-lg items-center py-xl">
+<div class="z-10">
+<span class="inline-block bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full font-label-md text-label-md mb-md">
+                        PEDIATRIC EXCELLENCE
+                    </span>
+<h1 class="font-display-lg text-display-lg text-on-background mb-md">
+                        Compassionate Care for <span class="text-gradient">Tiny Heroes</span>.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-lg">
+                        NeoPeds combines clinical precision with empathetic support to provide the highest standard of neonatal and pediatric medical resources for families and clinicians.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="bg-primary text-on-primary px-xl py-4 rounded-xl font-headline-sm text-headline-sm hover:shadow-lg transition-all">
+                            Book an Appointment
+                        </button>
+<button class="flex items-center justify-center gap-xs px-xl py-4 border-2 border-primary text-primary rounded-xl font-headline-sm text-headline-sm hover:bg-primary-container/10 transition-all">
+<span class="material-symbols-outlined">play_circle</span>
+                            Our Story
+                        </button>
+</div>
+</div>
+<div class="relative h-[600px]">
+<div class="absolute inset-0 bg-primary/5 rounded-[4rem] rotate-3 -z-10"></div>
+<img class="w-full h-full object-cover rounded-[4rem] shadow-xl border-8 border-white" data-alt="A professional female pediatrician in a clean, brightly lit modern clinic, smiling warmly while holding a happy infant during a routine checkup. The scene is bathed in soft, natural morning light, creating an atmosphere of safety, trust, and clinical excellence in a minimalist medical setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFs4r78nLmf5e5C8F9uUVMAaCBl6_G-_dfkW68cElDqEVtA_q11_VQMCLb0DwRMRJbEu__vhrKX_C5BjIDgtrf5V3FboreI5JQ_f7PNkhXShgYPEmsSK2_Nx8bvbI08xwuvGqGxYODfPGju4YAacUcVk8R3ENfnY-BXK94BEpIv7pdP1e7MeCb-9XVbtiGu3HJAwsFEk7JM9lnekuB6Z95g56DWzbfRv9i4tt7aiNBhjnlwUZbnw-nMEWM_dJEk2vXmHyO-syWsYwn"/>
+</div>
+</div>
+</section>
+<!-- Why NeoPeds: Bento Grid -->
+<section class="py-xl bg-white">
+<div class="max-w-[1440px] mx-auto px-margin-desktop">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-sm">Why NeoPeds?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
+                        We bridge the gap between advanced medical science and the heartfelt care every child deserves.
+                    </p>
+</div>
+<div class="bento-grid">
+<!-- Feature 1 -->
+<div class="col-span-12 md:col-span-8 bg-surface-container-lowest p-lg rounded-xl border border-outline-variant hover:shadow-sm transition-all group">
+<div class="flex flex-col md:flex-row gap-lg items-center">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary text-5xl mb-md" data-weight="fill">verified_user</span>
+<h3 class="font-headline-md text-headline-md mb-sm">Specialized Expertise</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                    Our team consists of board-certified neonatologists and pediatricians with decades of experience in high-risk newborn care and complex pediatric cases.
+                                </p>
+</div>
+<div class="flex-1 h-48 w-full bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close-up of high-tech medical monitoring equipment in a neonatal intensive care unit. The image shows glowing screens with heart rate and oxygen levels, set against a clean, clinical background with soft blue lighting to emphasize precision and advanced medical technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPqObKu7_HBNlfK3cKx_LS0WNclazGBi5_MPB56LLansnebhRx_2zc_csQLAosKXaAmgBj-d4SeLacLd3F7Nb6-Z6yG0bwpPSaeUfiRYu2wnEvYfhvyxV3sQhZ5gllgXQFM37htsQbZtpKoP-gPDhRXPcxWX8Sw0d1EVnqCr4j1aDS9j72yG_ABP9AoxwaQWp22VYzhOUBFBsBjbwaTs93lbsaW9XsfHdVbAPsQm0gtmzx2VnGsbs9ZgM4a9XreHeVLsjJlpJi0x0e"/>
+</div>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="col-span-12 md:col-span-4 bg-tertiary/5 p-lg rounded-xl border border-tertiary-container/30 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-tertiary text-5xl mb-md">clinical_notes</span>
+<h3 class="font-headline-md text-headline-md mb-sm">Evidence Based</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Every resource and treatment plan is grounded in the latest peer-reviewed clinical research and pediatric guidelines.
+                        </p>
+</div>
+<!-- Feature 3 -->
+<div class="col-span-12 md:col-span-4 bg-secondary/5 p-lg rounded-xl border border-secondary-container/30">
+<span class="material-symbols-outlined text-secondary text-5xl mb-md">volunteer_activism</span>
+<h3 class="font-headline-md text-headline-md mb-sm">Family Centered</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            We believe that healing happens best when families are informed, empowered, and involved in every decision.
+                        </p>
+</div>
+<!-- Feature 4 -->
+<div class="col-span-12 md:col-span-8 bg-surface-container-lowest p-lg rounded-xl border border-outline-variant hover:shadow-sm transition-all group">
+<div class="flex flex-col md:flex-row-reverse gap-lg items-center">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary text-5xl mb-md">speed</span>
+<h3 class="font-headline-md text-headline-md mb-sm">Rapid Support</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                    Access to critical dosage calculators and triage resources when seconds matter most in a clinical environment.
+                                </p>
+</div>
+<div class="flex-1 h-48 w-full bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, modern clinical dashboard displayed on a tablet held by a medical professional. The interface shows organized patient data and medical calculators with high legibility and a soft teal color palette, reflecting a minimalist and efficient healthcare technology environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmZ8RVQoTB1DPLb3EHX-g3wScrKvrMnXmE5vMTfmq5T34eS6pi15zn9xl0WiPwKXOeQQ1nhFt-XXYFuCI2FfwP_gvThgLZdiZCMa5LLhYodimcMIMrZ-XGA-35LJvH0187gkj5E_piLmj2qFawh0nJWgUfsop1-bLyUTUe0L9h0bv4uQnHdO0bAMwRgJ3vQ6Sev0_d4RnzgLAgXpgsSsDidHd2zkLppXVxM5XXCCb89KLJz48gOX97MlCWlQNarjqnObejof62hyrc"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Specializations -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-md">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-sm">Our Specializations</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            From the first moments of life through the teenage years, our clinical excellence covers the entire spectrum of pediatric medicine.
+                        </p>
+</div>
+<button class="text-primary font-bold flex items-center gap-xs hover:underline">
+                        View all services <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Neonatology -->
+<div class="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A peaceful newborn baby resting in a medical bassinet in a soft-lit neonatal ward. The lighting is ethereal and warm, using high-key tones to create a sense of serenity and hope. The composition focuses on the fragile beauty of early life within a safe, sterile, and caring medical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWybclh5_TCjmtiUzm9YJE_d9FMACb1Jw4PR1iJKxWGFA5GXBBYbqZ3sVgW2TKuufusNJIulXVsY3PFzCFkMwHCBkdWgE0tvkFLgPtcGBoMsngiSiITOnRL0FIrO93QY9p5qd8hNJsQO0ndR9KnQS8mCUPT9kvTfe1kXJjP8SRTtuzBYhlWKMNO7gUg2YEtqVAlMw6kCr17fd7aX8oImwU9J2XMpu3zrf8Kb6JAxg7MrPoqEB51npS0X049SL3HgLfizMB1RPFBBoZ"/>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-md">
+<h3 class="font-headline-md text-headline-md text-primary">Neonatology</h3>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Critical Care</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">
+                                Specialized medical care for newborn infants, particularly those who are premature, underweight, or have medical conditions requiring intensive monitoring.
+                            </p>
+<ul class="space-y-sm mb-lg">
+<li class="flex items-center gap-xs font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> NICU Support &amp; Management
+                                </li>
+<li class="flex items-center gap-xs font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> High-Risk Birth Consultations
+                                </li>
+</ul>
+<button class="w-full py-3 rounded-lg border border-outline-variant hover:bg-surface-container transition-colors font-bold text-on-surface">
+                                Learn More
+                            </button>
+</div>
+</div>
+<!-- General Pediatrics -->
+<div class="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+<div class="h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A cheerful young child laughing while sitting on a pediatrician's examination table. The room is decorated with colorful, friendly graphics to put patients at ease. The light is bright and welcoming, highlighting the playful and supportive nature of modern pediatric primary care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADjAxP5_KfZlpIrqHAsUKOWmJHay_A1gf0Bi1VdAnN_SdcmE4XrWJbuWwISsS85B_wjw779MRek9XhYM93GVWUKbqB4Bae-fdKGFHN5CB2IAy2ReSnvwJ2-ZbQzMnsC0M83mA4YIrPZ8Kcj4Hy3QIe5YjXE_T6VlvqOVuLsOfGb1jIbV7nMJYUrg3PtbJsbDJz2Hh6ydR3U5rn9Rto_SrFwKRf8HcIUh95UHpvD9PWW8I3_iNDWhR00qHCXpvkmQJpWR-h4lAXQwht"/>
+</div>
+<div class="p-lg">
+<div class="flex justify-between items-start mb-md">
+<h3 class="font-headline-md text-headline-md text-secondary">General Pediatrics</h3>
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Primary Care</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">
+                                Comprehensive wellness care for children from infancy through adolescence, focusing on physical growth, cognitive development, and emotional health.
+                            </p>
+<ul class="space-y-sm mb-lg">
+<li class="flex items-center gap-xs font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span> Well-Child Checkups
+                                </li>
+<li class="flex items-center gap-xs font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary text-sm">check_circle</span> Immunization Schedules
+                                </li>
+</ul>
+<button class="w-full py-3 rounded-lg border border-outline-variant hover:bg-surface-container transition-colors font-bold text-on-surface">
+                                Learn More
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-xl bg-white overflow-hidden">
+<div class="max-w-[1440px] mx-auto px-margin-desktop">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-sm">Voices of Trust</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Hear from the families who have trusted us with their most precious gifts.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Testimonial 1 -->
+<div class="bg-surface-container-low p-lg rounded-2xl relative">
+<span class="material-symbols-outlined text-primary-container absolute top-4 right-6 text-6xl opacity-20">format_quote</span>
+<div class="flex items-center gap-sm mb-md">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-primary-container/20">
+<img alt="Sarah J." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcNt4qbuIpJ_k45NkBjEvimxIZ2epcg3B0c6e4pag0FvL343xWmu_KglmR6tBqDJafjKnWe77iqBI1DMvZcRMQG0OGFqO0tZyuTo72MYyem4wlqdCDJDJ1SezujEKM1_1wTts9SnwqS1pUecoZ49Vq8EY1uk4zHt4kgwike9ftPhz8SXzkHk4r88Kr5jt-BrqB8UXefTPSA3VeqjWCe__s7tjn8UR8AC-vH25g0be22ASEra_HVOdm4461RHwODGUgWey4FHdyz41w"/>
+</div>
+<div>
+<p class="font-bold text-on-background">Sarah J.</p>
+<p class="text-xs text-on-surface-variant">Parent of Preterm Infant</p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm italic text-on-surface-variant leading-relaxed">
+                            "The neonatal resources provided by NeoPeds were a lifeline during our NICU stay. Their clarity and compassion helped us navigate the most difficult weeks of our lives."
+                        </p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-primary p-lg rounded-2xl relative text-on-primary shadow-xl scale-105 z-10">
+<span class="material-symbols-outlined text-white absolute top-4 right-6 text-6xl opacity-20">format_quote</span>
+<div class="flex items-center gap-sm mb-md">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-white/20">
+<img alt="Dr. Michael Chen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNn-dZ7HXA4tDw7KZqJMVkjTqviwjZCd4bV2zC_OsByQUAaDKY1gf8DEC5O5gB2S7CV6rogguXjE9aGxrD4ayprXfa_v8MkChPZPA8YPErwFFIAgmrSYO08kINkUlvYHaVM3N2hOuMCu7awCWmJMTorFTywGzcuMcLud_5vSwT7oZSYJSsDfL4fABVV6ogHUaGFBj1CoyXugTvpuMLujRxiC7P4kzyo0smn9jR88lmZVcVpNRn8uyRPAKubshNVSpIEQxr5fsaip4g"/>
+</div>
+<div>
+<p class="font-bold">Dr. Michael Chen</p>
+<p class="text-xs opacity-80 text-surface-variant">Referring Pediatrician</p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm italic leading-relaxed">
+                            "As a fellow practitioner, I rely on NeoPeds for their precise clinical tools. Their dosage calculators are the gold standard for my daily rounds."
+                        </p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface-container-low p-lg rounded-2xl relative">
+<span class="material-symbols-outlined text-primary-container absolute top-4 right-6 text-6xl opacity-20">format_quote</span>
+<div class="flex items-center gap-sm mb-md">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-primary-container/20">
+<img alt="Elena Rodriguez" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmcCSuobTiA5ofj6nC1Q41Q781cC_A5oqTobJjplkqorVAHXb2Fh8v3-xRVVlSZvLbG3yOCwf5Ns0asX2rNzBVBlehePuX8DnI06-HoSSAR9rRwXysyMBQ46uKCYv31FYq0jg0sKX2QCk8WK9AvuYszD50inhe48Vol-rvRLCg7alZI4YUTqJlv6osgZ_rbxEnzrivHbAJlsXF9rsyEvJ87JuWmW6-8VlkWDFvg7MH7cLANLvWCSvUGLSR2jQ-BbdLgXmtJcw7HYYK"/>
+</div>
+<div>
+<p class="font-bold text-on-background">Elena Rodriguez</p>
+<p class="text-xs text-on-surface-variant">Mother of three</p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm italic text-on-surface-variant leading-relaxed">
+                            "From simple fever questions to complex developmental milestones, NeoPeds is our family's primary source of truth. Highly professional and always accessible."
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-xl">
+<div class="max-w-[1200px] mx-auto px-margin-desktop">
+<div class="bg-inverse-surface rounded-3xl p-xl text-center relative overflow-hidden">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+<h2 class="font-display-lg text-display-lg text-white mb-md relative z-10">Ready to provide the best care?</h2>
+<p class="text-surface-variant font-body-lg text-body-lg mb-lg max-w-xl mx-auto relative z-10">
+                        Join thousands of healthcare providers and families who trust NeoPeds for neonatal and pediatric excellence.
+                    </p>
+<div class="flex flex-col sm:flex-row justify-center gap-md relative z-10">
+<button class="bg-primary-fixed text-on-primary-fixed px-xl py-4 rounded-xl font-headline-sm text-headline-sm hover:bg-primary-fixed-dim transition-all">
+                            Book Appointment
+                        </button>
+<button class="bg-transparent border border-surface-variant text-surface-variant px-xl py-4 rounded-xl font-headline-sm text-headline-sm hover:bg-white/5 transition-all">
+                            Contact Support
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-xl bg-inverse-surface pt-lg pb-md">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-[1440px] mx-auto text-surface-bright">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-xs mb-md">
+<img alt="NeoPeds Logo" class="h-8 brightness-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnNjZONCpfAThJ9XhsqrUS52y-tZxkzuPMF6Xb3uhPUeUisxgmUkC9p-qJw7iF7LljVL7sgK9Msi9s-cIimUfNVc3sGirTIVDDqL-53dpmCPy44e3fdo_JvfvFLxdyBiTy62M4u0UtYvrwotIlARxFwZLE-cYfF-wUZJNxXX4GuRUuNwW-2uhKUm0NjTbNKtLPLI2-DHe8DnFOSCCdSX9tUM6T36vHUuCwL14o2eFjoSicW2bUryNG7m7AJu3m2KWXkU5C35EsEF_P"/>
+<span class="font-headline-sm text-headline-sm font-bold text-primary-fixed tracking-tight">NeoPeds</span>
+</div>
+<p class="font-body-sm text-body-sm text-surface-variant leading-relaxed">
+                    Setting the global standard for neonatal resources and pediatric medical excellence through technology and compassion.
+                </p>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary-fixed mb-md">Quick Links</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-surface-variant hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-sm text-body-sm text-surface-variant hover:text-primary-fixed transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-body-sm text-body-sm text-surface-variant hover:text-primary-fixed transition-colors" href="#">Patient Portal</a></li>
+<li><a class="font-body-sm text-body-sm text-surface-variant hover:text-primary-fixed transition-colors" href="#">Accessibility</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary-fixed mb-md">Contact</h4>
+<p class="font-body-sm text-body-sm text-surface-variant mb-base">Medical Resource Center</p>
+<p class="font-body-sm text-body-sm text-surface-variant mb-base">contact@neopeds.medical</p>
+<p class="font-body-sm text-body-sm text-surface-variant">+1 (800) NEO-PEDS</p>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary-fixed mb-md">Newsletter</h4>
+<p class="font-body-sm text-body-sm text-surface-variant mb-md">Get clinical updates and neonatal news delivered to your inbox.</p>
+<div class="flex flex-col gap-sm">
+<input class="bg-surface-container-highest/10 border border-outline-variant text-white p-2 rounded-lg text-body-sm" placeholder="Email Address" type="email"/>
+<button class="bg-primary-fixed text-on-primary-fixed py-2 rounded-lg font-label-md text-label-md font-bold">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-margin-desktop mt-lg pt-md border-t border-outline/20">
+<p class="font-body-sm text-body-sm text-surface-variant opacity-60">© 2024 NeoPeds Medical Resource. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

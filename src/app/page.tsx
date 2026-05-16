@@ -1,339 +1,280 @@
-import type { JSX } from "react";
-import Image from "next/image";
+import type { Metadata } from "next";
 
-/* ── Icon primitives ── */
-function HeartIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5" aria-hidden="true">
-      <path d="M12 21s-9-6.5-9-12.5C3 5.42 5.42 3 8.5 3c1.74 0 3.31.81 3.5 1 .19-.19 1.76-1 3.5-1C18.58 3 21 5.42 21 8.5 21 14.5 12 21 12 21z" />
-    </svg>
-  );
-}
+export const metadata: Metadata = {
+  title: "NeoPeds — Clinical Tools for Neonatology & Pediatrics",
+  description:
+    "Free, evidence-based clinical decision-support tools for neonatology and pediatrics. TPN calculator for neonates and a pediatric dosing reference.",
+};
 
-function IVIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-6 h-6 stroke-blue-600"
-      role="img"
-      aria-label="IV drip representing total parenteral nutrition"
-    >
-      <path d="M8 2v4" />
-      <path d="M16 2v4" />
-      <rect x="6" y="4" width="12" height="4" rx="1" />
-      <path d="M12 8v5" />
-      <path d="M9 13h6" />
-      <path d="M10.5 13c0 3.5-2.5 5-2.5 8" />
-      <path d="M13.5 13c0 3.5 2.5 5 2.5 8" />
-    </svg>
-  );
-}
-
-function StethoscopeIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-6 h-6 stroke-teal-600"
-      role="img"
-      aria-label="Stethoscope representing pediatric clinical reference"
-    >
-      <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />
-      <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" />
-      <circle cx="20" cy="10" r="2" />
-    </svg>
-  );
-}
-
-function ArrowUpRightIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M7 17L17 7M17 7H7M17 7V17" />
-    </svg>
-  );
-}
-
-/* ── Project card data ── */
-interface Project {
-  href: string;
-  tag: string;
-  title: string;
-  description: string;
-  features: string[];
-  url: string;
-  variant: "tpn" | "peds";
-  icon: JSX.Element;
-}
-
-const projects: Project[] = [
+const tools = [
   {
     href: "https://tpn.neopeds.org",
     tag: "Neonatology",
+    tagColor: "bg-primary/10 text-primary",
     title: "TPN Calculator",
+    subtitle: "Total Parenteral Nutrition",
     description:
-      "Total parenteral nutrition calculator tailored for neonates. Compute macronutrient, fluid, and electrolyte requirements with weight-based dosing and NICU-specific guidelines.",
+      "Weight-based TPN calculator tailored for neonates and NICU patients. Compute macronutrient, fluid, and electrolyte requirements with evidence-based dosing guidelines.",
+    icon: "science",
+    iconBg: "bg-primary/5",
+    iconColor: "text-primary",
+    accentBg: "bg-primary",
+    accentText: "text-on-primary",
+    borderHover: "hover:border-primary/30",
     features: [
-      "Fluid & caloric targets by weight and age",
-      "Dextrose, amino acid & lipid calculations",
-      "Electrolyte and micronutrient dosing",
-      "Printable / shareable output",
+      { icon: "water_drop", label: "Fluid & caloric targets by weight and gestational age" },
+      { icon: "biotech", label: "Dextrose, amino acid & lipid calculations" },
+      { icon: "monitor_heart", label: "Electrolyte and micronutrient dosing" },
+      { icon: "print", label: "Printable & shareable output" },
     ],
     url: "tpn.neopeds.org",
-    variant: "tpn",
-    icon: <IVIcon />,
   },
   {
     href: "https://peds.neopeds.org",
     tag: "Pediatrics",
+    tagColor: "bg-secondary/10 text-secondary",
     title: "Peds Reference",
+    subtitle: "Pediatric Clinical Reference",
     description:
-      "Pediatric clinical reference and dosing tool. Weight-based drug dosing, vital sign norms by age, and growth chart references for general pediatric and neonatal practice.",
+      "Comprehensive pediatric dosing and reference tool. Weight-based drug dosing, vital sign norms by age, and growth chart references for general pediatric and neonatal practice.",
+    icon: "stethoscope",
+    iconBg: "bg-secondary/5",
+    iconColor: "text-secondary",
+    accentBg: "bg-secondary",
+    accentText: "text-on-secondary",
+    borderHover: "hover:border-secondary/30",
     features: [
-      "Weight-based drug dosing by age",
-      "Age-stratified vital sign ranges",
-      "Growth & developmental milestones",
-      "Quick-reference resuscitation data",
+      { icon: "medication", label: "Weight-based drug dosing by age and indication" },
+      { icon: "favorite", label: "Age-stratified vital sign ranges" },
+      { icon: "trending_up", label: "Growth & developmental milestones" },
+      { icon: "emergency", label: "Quick-reference resuscitation data" },
     ],
     url: "peds.neopeds.org",
-    variant: "peds",
-    icon: <StethoscopeIcon />,
   },
 ];
 
-/* ── Variant style maps ── */
-const variantStyles = {
-  tpn: {
-    tag: "bg-blue-50 text-blue-600 border border-blue-200",
-    iconBg: "bg-blue-50",
-    topBar: "from-blue-500 to-blue-400",
-    dot: "bg-blue-400",
-    arrowBg: "bg-blue-50 group-hover:bg-blue-100",
-    arrowStroke: "stroke-blue-600",
-    hoverBorder: "hover:border-blue-200",
-  },
-  peds: {
-    tag: "bg-teal-50 text-teal-700 border border-teal-200",
-    iconBg: "bg-teal-50",
-    topBar: "from-teal-500 to-teal-400",
-    dot: "bg-teal-400",
-    arrowBg: "bg-teal-50 group-hover:bg-teal-100",
-    arrowStroke: "stroke-teal-600",
-    hoverBorder: "hover:border-teal-200",
-  },
-};
+const badges = [
+  { icon: "verified", label: "Evidence-Based" },
+  { icon: "emergency", label: "NICU-Ready" },
+  { icon: "smartphone", label: "Mobile Friendly" },
+  { icon: "lock_open", label: "No Login Required" },
+  { icon: "volunteer_activism", label: "Free Forever" },
+];
 
-/* ── Project Card ── */
-function ProjectCard({ project }: { project: Project }) {
-  const s = variantStyles[project.variant];
-  return (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`group relative flex flex-col gap-5 rounded-2xl border border-slate-200 bg-white p-8 no-underline transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-200/60 ${s.hoverBorder}`}
-    >
-      {/* Coloured top accent bar */}
-      <span
-        className={`absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl bg-gradient-to-r ${s.topBar} opacity-0 group-hover:opacity-100 transition-opacity duration-200`}
-      />
-
-      {/* Icon + Tag row */}
-      <div className="flex items-start justify-between gap-4">
-        <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${s.iconBg} p-2.5`}>
-          {project.icon}
-        </div>
-        <span className={`rounded-full px-3 py-1 text-[0.65rem] font-bold tracking-widest uppercase ${s.tag}`}>
-          {project.tag}
-        </span>
-      </div>
-
-      {/* Title */}
-      <h3 className="text-2xl font-semibold tracking-tight text-slate-900">
-        {project.title}
-      </h3>
-
-      {/* Description */}
-      <p className="flex-1 text-[0.92rem] leading-relaxed text-slate-500">
-        {project.description}
-      </p>
-
-      {/* Feature list */}
-      <ul className="flex flex-col gap-2">
-        {project.features.map((f) => (
-          <li key={f} className="flex items-center gap-2 text-[0.83rem] text-slate-600">
-            <span className={`inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full ${s.dot}`} />
-            {f}
-          </li>
-        ))}
-      </ul>
-
-      {/* Footer row */}
-      <div className="flex items-center justify-between border-t border-slate-100 pt-4">
-        <span className="text-[0.78rem] font-semibold text-slate-400">{project.url}</span>
-        <div
-          className={`flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] ${s.arrowBg}`}
-        >
-          <ArrowUpRightIcon className={`h-3.5 w-3.5 ${s.arrowStroke}`} />
-        </div>
-      </div>
-    </a>
-  );
-}
-
-/* ── Page ── */
-export default function Home() {
+export default function HomePage() {
   return (
     <>
-      {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 bg-white/85 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-          <a href="/" className="flex items-center gap-2.5 no-underline">
-            <Image
-              src="/logo.png"
-              alt="NeoPeds logo — sleeping neonate in a neon heart"
-              width={36}
-              height={36}
-              className="rounded-xl"
-              priority
-            />
-            <span className="text-xl font-bold tracking-tight text-slate-900">
-              Neo<span className="text-blue-600">Peds</span>
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden bg-surface-container-low py-xl">
+        <div className="max-w-[1440px] mx-auto px-margin-desktop">
+          <div className="max-w-[48rem]">
+            <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-label-md font-bold mb-md uppercase tracking-wider">
+              Clinical Decision Support
             </span>
-          </a>
-          <span className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-widest text-blue-600">
-            Clinical Tools
-          </span>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <section className="relative mt-16 overflow-hidden bg-gradient-to-br from-white via-blue-50 to-sky-100 px-6 py-24 text-center">
-        {/* Radial glows */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[10%] top-[20%] h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" />
-          <div className="absolute right-[10%] bottom-[15%] h-72 w-72 rounded-full bg-teal-200/30 blur-3xl" />
-        </div>
-
-        <div className="relative mx-auto max-w-3xl">
-          <p className="mb-5 inline-flex items-center gap-2 text-[0.75rem] font-bold uppercase tracking-widest text-blue-600">
-            <span className="h-px w-7 bg-blue-400" />
-            Neonatology &amp; Pediatrics
-            <span className="h-px w-7 bg-blue-400" />
-          </p>
-
-          <h1 className="mb-5 text-5xl font-bold leading-tight tracking-tight text-slate-900 sm:text-6xl">
-            Clinical tools built for{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">
-              Neonate &amp; Pediatric patients
-            </span>
-          </h1>
-
-          <p className="mx-auto mb-12 max-w-md text-lg leading-relaxed text-slate-500">
-            Evidence-based calculators and references designed for neonatal and
-            pediatric care teams.
-          </p>
-        </div>
-      </section>
-
-      {/* Tools directory */}
-      <section className="mx-auto w-full max-w-5xl px-6 py-20">
-        <div className="mb-12 text-center">
-          <p className="mb-2 text-[0.72rem] font-bold uppercase tracking-widest text-teal-600">
-            Projects
-          </p>
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
-            Available Tools
-          </h2>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2">
-          {projects.map((p) => (
-            <ProjectCard key={p.href} project={p} />
-          ))}
-        </div>
-      </section>
-
-      {/* About the Author */}
-      <section className="border-t border-slate-200 bg-white px-6 py-20">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-10 text-center">
-            <p className="mb-2 text-[0.72rem] font-bold uppercase tracking-widest text-teal-600">
-              About the Author
+            <h1 className="font-heading text-display-lg font-bold text-on-background mb-md leading-tight">
+              Tools built for the{" "}
+              <span className="text-gradient-brand">bedside.</span>
+            </h1>
+            <p className="text-body-lg text-on-surface-variant max-w-[42rem] mb-lg">
+              Free, evidence-based calculators and references designed for
+              neonatal and pediatric care teams — available instantly, no
+              account required.
             </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
-              The clinician behind the tools
+
+            {/* Badge strip */}
+            <div className="flex flex-wrap gap-sm">
+              {badges.map((b) => (
+                <span
+                  key={b.label}
+                  className="inline-flex items-center gap-xs bg-white border border-outline-variant text-on-surface-variant text-label-md font-semibold px-sm py-xs rounded-full"
+                >
+                  <span className="material-symbols-outlined text-primary text-[16px]">
+                    {b.icon}
+                  </span>
+                  {b.label}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Decorative glows */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl translate-x-1/2 -translate-y-1/4" />
+          <div className="absolute right-1/4 bottom-0 h-64 w-64 rounded-full bg-secondary/5 blur-3xl translate-y-1/2" />
+        </div>
+      </section>
+
+      {/* ── Tool Cards Bento ── */}
+      <section className="max-w-[1440px] mx-auto px-margin-desktop py-xl">
+        <div className="bento-grid">
+          {tools.map((tool) => (
+            <a
+              key={tool.href}
+              href={tool.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`col-span-12 md:col-span-6 bg-surface-container-lowest border border-outline-variant ${tool.borderHover} rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col cursor-pointer`}
+            >
+              {/* Card top accent bar */}
+              <div className={`h-1 w-full ${tool.accentBg}`} />
+
+              <div className="p-lg flex flex-col flex-1">
+                {/* Icon + Tag */}
+                <div className="flex items-start justify-between mb-lg">
+                  <div className={`${tool.iconBg} p-md rounded-xl`}>
+                    <span className={`material-symbols-outlined ${tool.iconColor} text-4xl`}>
+                      {tool.icon}
+                    </span>
+                  </div>
+                  <span className={`${tool.tagColor} text-label-md font-bold uppercase tracking-wider px-3 py-1 rounded-full`}>
+                    {tool.tag}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <div className="mb-md">
+                  <p className="text-label-md text-on-surface-variant uppercase tracking-wider mb-xs">
+                    {tool.subtitle}
+                  </p>
+                  <h2 className="font-heading text-headline-lg font-bold text-on-background">
+                    {tool.title}
+                  </h2>
+                </div>
+
+                {/* Description */}
+                <p className="text-body-md text-on-surface-variant mb-lg leading-relaxed">
+                  {tool.description}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-sm mb-lg flex-1">
+                  {tool.features.map((f) => (
+                    <li key={f.label} className="flex items-start gap-sm">
+                      <div className={`${tool.iconBg} rounded-lg p-xs flex-shrink-0 mt-0.5`}>
+                        <span className={`material-symbols-outlined ${tool.iconColor} text-[18px]`}>
+                          {f.icon}
+                        </span>
+                      </div>
+                      <span className="text-body-sm text-on-surface leading-snug">{f.label}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Footer */}
+                <div className="border-t border-outline-variant pt-md flex items-center justify-between">
+                  <span className="text-label-md text-on-surface-variant font-semibold">
+                    {tool.url}
+                  </span>
+                  <span className={`${tool.accentBg} ${tool.accentText} px-lg py-sm rounded-full text-label-md font-bold flex items-center gap-xs`}>
+                    Open Tool
+                    <span className="material-symbols-outlined text-[18px]">
+                      open_in_new
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+
+          {/* ── Stat Cards Row ── */}
+          <div className="col-span-12 md:col-span-4 bg-primary p-lg rounded-xl text-on-primary flex flex-col justify-between">
+            <span className="material-symbols-outlined text-4xl mb-md opacity-80">
+              calculate
+            </span>
+            <div>
+              <h3 className="font-heading text-headline-md font-semibold mb-xs">
+                Weight-Based Dosing
+              </h3>
+              <p className="text-body-sm opacity-90">
+                Every calculation accounts for gestational age, corrected age,
+                and current weight — the way it should be done at the bedside.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant p-lg rounded-xl flex flex-col justify-between hover:shadow-sm transition-all">
+            <span className="material-symbols-outlined text-tertiary text-4xl mb-md">
+              verified_user
+            </span>
+            <div>
+              <h3 className="font-heading text-headline-md font-semibold text-on-background mb-xs">
+                Evidence-Based Guidelines
+              </h3>
+              <p className="text-body-sm text-on-surface-variant">
+                Built from peer-reviewed neonatal and pediatric literature.
+                Regularly reviewed against current AAP and NICU best practices.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-span-12 md:col-span-4 bg-secondary/5 border border-secondary/10 p-lg rounded-xl flex flex-col justify-between">
+            <span className="material-symbols-outlined text-secondary text-4xl mb-md">
+              devices
+            </span>
+            <div>
+              <h3 className="font-heading text-headline-md font-semibold text-on-background mb-xs">
+                Works on Any Device
+              </h3>
+              <p className="text-body-sm text-on-surface-variant">
+                Optimized for tablets and phones used on ward rounds. Fast
+                load, no app install required — just open and calculate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── About the Author ── */}
+      <section className="py-xl bg-surface-container-low" id="team">
+        <div className="max-w-[1440px] mx-auto px-margin-desktop">
+          <div className="mb-lg">
+            <span className="text-tertiary text-label-md font-bold uppercase tracking-widest mb-base block">
+              The Clinician Behind the Tools
+            </span>
+            <h2 className="font-heading text-headline-lg font-semibold text-on-background">
+              Built by a neonatologist, for the NICU.
             </h2>
           </div>
 
-          <div className="flex flex-col items-center gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 sm:flex-row sm:items-start sm:gap-10">
+          <div className="flex flex-col sm:flex-row gap-lg bg-surface-container-lowest border border-outline-variant rounded-2xl p-lg items-start">
             {/* Avatar */}
             <div className="flex-shrink-0">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-teal-500 text-2xl font-bold text-white shadow-lg">
+              <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary text-on-primary text-2xl font-bold font-heading shadow-lg">
                 AHB
               </div>
             </div>
 
             {/* Info */}
-            <div className="flex-1 text-center sm:text-left">
-              <h3 className="text-2xl font-bold tracking-tight text-slate-900">
+            <div className="flex-1">
+              <h3 className="font-heading text-headline-md font-semibold text-on-background mb-sm">
                 Ahmed Hussain Buzaid
               </h3>
 
-              <div className="mt-2 flex flex-wrap justify-center gap-2 sm:justify-start">
-                {[
-                  "MD",
-                  "Neonatologist",
-                  "Saudi Fellowship Certified Neonatologist",
-                  "Saudi Board Certified Pediatrician",
-                ].map((badge) => (
+              <div className="flex flex-wrap gap-sm mb-md">
+                {["MD", "Neonatologist", "Saudi Fellowship Certified Neonatologist", "Saudi Board Certified Pediatrician"].map((badge) => (
                   <span
                     key={badge}
-                    className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[0.72rem] font-semibold text-blue-700"
+                    className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-label-md font-semibold"
                   >
                     {badge}
                   </span>
                 ))}
               </div>
 
-              <p className="mt-4 max-w-xl text-[0.94rem] leading-relaxed text-slate-500">
-                Dr. Buzaid is a board-certified pediatrician and fellowship-trained
-                neonatologist dedicated to improving bedside care through
-                accessible, evidence-based clinical tools. NeoPeds was built to
-                give care teams fast, reliable references during critical moments
-                in the NICU and pediatric ward.
+              <p className="text-body-md text-on-surface-variant max-w-[42rem] leading-relaxed mb-md">
+                Dr. Buzaid is a board-certified pediatrician and
+                fellowship-trained neonatologist dedicated to improving bedside
+                care through accessible, evidence-based clinical tools. NeoPeds
+                was built to give care teams fast, reliable references during
+                critical moments in the NICU and pediatric ward.
               </p>
 
               <a
                 href="mailto:ahb1117@gmail.com"
-                className="mt-5 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2 text-[0.85rem] font-semibold text-slate-700 shadow-sm transition-all hover:border-blue-300 hover:text-blue-600 hover:shadow-md"
+                className="inline-flex items-center gap-sm bg-white border border-outline-variant text-on-surface px-md py-sm rounded-full text-body-sm font-semibold hover:border-primary hover:text-primary transition-all shadow-sm"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4"
-                  aria-hidden="true"
-                >
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
+                <span className="material-symbols-outlined text-[18px]">mail</span>
                 ahb1117@gmail.com
               </a>
             </div>
@@ -341,54 +282,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About strip */}
-      <section className="bg-gradient-to-br from-blue-900 to-[#0f3057] px-6 py-16 text-white">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-10">
-          <div className="min-w-[260px] flex-1">
-            <h2 className="mb-3 text-2xl font-semibold tracking-tight">
-              Built for clinicians, by clinicians
+      {/* ── CTA ── */}
+      <section className="py-xl">
+        <div className="max-w-[1200px] mx-auto px-margin-desktop">
+          <div className="bg-inverse-surface rounded-3xl p-xl text-center relative overflow-hidden">
+            <div className="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
+            <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/20 rounded-full blur-3xl" />
+            <h2 className="font-heading text-display-lg font-bold text-white mb-md relative z-10">
+              Open a tool now.
             </h2>
-            <p className="max-w-md text-[0.94rem] leading-relaxed text-white/70">
-              NeoPeds is a growing suite of free, open clinical decision-support
-              tools focused on neonatology and pediatrics. Every tool is built
-              with evidence-based guidelines and designed for fast bedside use.
+            <p className="text-surface-variant text-body-lg mb-lg max-w-[32rem] mx-auto relative z-10">
+              No account, no ads, no paywalls. Just the clinical data you need,
+              exactly when you need it.
             </p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {[
-              "Evidence-Based",
-              "NICU-Ready",
-              "Mobile Friendly",
-              "No Login Required",
-              "Free Forever",
-              "neopeds.org",
-            ].map((label) => (
-              <span
-                key={label}
-                className="rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[0.8rem] font-medium text-white/85"
+            <div className="flex flex-col sm:flex-row justify-center gap-md relative z-10">
+              <a
+                href="https://tpn.neopeds.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-fixed text-on-primary-fixed px-xl py-4 rounded-xl text-headline-sm font-heading font-semibold hover:bg-primary-fixed-dim transition-all flex items-center justify-center gap-sm"
               >
-                {label}
-              </span>
-            ))}
+                <span className="material-symbols-outlined">science</span>
+                TPN Calculator
+              </a>
+              <a
+                href="https://peds.neopeds.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-transparent border border-surface-variant text-surface-variant px-xl py-4 rounded-xl text-headline-sm font-heading font-semibold hover:bg-white/5 transition-all flex items-center justify-center gap-sm"
+              >
+                <span className="material-symbols-outlined">stethoscope</span>
+                Peds Reference
+              </a>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white px-6 py-6 text-center">
-        <p className="flex items-center justify-center gap-2 text-[0.82rem] text-slate-400">
-          <span className="pulse-dot inline-block h-2 w-2 rounded-full bg-green-500" />
-          &copy; {new Date().getFullYear()}{" "}
-          <a
-            href="https://neopeds.org"
-            className="font-semibold text-blue-600 hover:underline"
-          >
-            NeoPeds
-          </a>
-          &nbsp;&mdash; Clinical tools for neonatology &amp; pediatrics. For
-          educational and clinical support use only.
-        </p>
-      </footer>
     </>
   );
 }

@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
+import Nav from "@/components/nav";
+import Footer from "@/components/footer";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  weight: ["400", "600", "700", "800"],
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 const siteUrl = "https://neopeds.org";
 
@@ -81,52 +95,12 @@ const jsonLd = {
       name: "NeoPeds — Clinical Tools for Neonatology & Pediatrics",
       isPartOf: { "@id": `${siteUrl}/#website` },
       description:
-        "A directory of free clinical decision-support tools for neonatal and pediatric care teams, including a TPN calculator and pediatric drug dosing reference.",
+        "A directory of free clinical decision-support tools for neonatal and pediatric care teams.",
       about: [
-        {
-          "@type": "MedicalSpecialty",
-          name: "Neonatology",
-        },
-        {
-          "@type": "MedicalSpecialty",
-          name: "Pediatrics",
-        },
+        { "@type": "MedicalSpecialty", name: "Neonatology" },
+        { "@type": "MedicalSpecialty", name: "Pediatrics" },
       ],
-      audience: {
-        "@type": "MedicalAudience",
-        audienceType: "Clinician",
-      },
-      medicalAudience: {
-        "@type": "MedicalAudience",
-        audienceType: "Clinician",
-      },
-    },
-    {
-      "@type": "MedicalWebPage",
-      url: "https://tpn.neopeds.org",
-      name: "TPN Calculator — NeoPeds",
-      description:
-        "Total parenteral nutrition calculator for neonates. Computes fluid, caloric, macronutrient, and electrolyte requirements using weight-based NICU dosing guidelines.",
-      about: {
-        "@type": "MedicalTherapy",
-        name: "Total Parenteral Nutrition",
-        alternateName: "TPN",
-        relevantSpecialty: {
-          "@type": "MedicalSpecialty",
-          name: "Neonatology",
-        },
-      },
-    },
-    {
-      "@type": "MedicalWebPage",
-      url: "https://peds.neopeds.org",
-      name: "Peds Reference — NeoPeds",
-      description:
-        "Pediatric clinical reference for weight-based drug dosing, age-stratified vital sign ranges, and growth milestones.",
-      about: {
-        "@type": "MedicalSpecialty",
-        name: "Pediatrics",
-      },
+      audience: { "@type": "MedicalAudience", audienceType: "Clinician" },
     },
   ],
 };
@@ -135,15 +109,25 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${montserrat.variable} ${inter.variable} h-full antialiased`}
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
       </head>
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-700">
-        {children}
+      <body className="min-h-full flex flex-col bg-background text-on-surface font-sans">
+        <Nav />
+        <main className="flex-1 pt-16">{children}</main>
+        <Footer />
       </body>
     </html>
   );

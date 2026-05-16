@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us - NeoPeds Medical Resource</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dosage-recessed {
+            background-color: #f1f5f9;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#213145",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9ff",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary-fixed": "#001f24",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#4c5d8b",
+                        "inverse-primary": "#89d2de",
+                        "on-background": "#0b1c30",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#2b646a",
+                        "on-secondary-fixed-variant": "#344571",
+                        "secondary-fixed-dim": "#b4c5f9",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#a4eefb",
+                        "tertiary-fixed": "#b4ecf3",
+                        "outline-variant": "#bec8ca",
+                        "on-secondary-container": "#445582",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#f5feff",
+                        "on-primary-fixed-variant": "#004f57",
+                        "surface-container-high": "#dce9ff",
+                        "primary": "#086670",
+                        "surface-tint": "#0e6873",
+                        "primary-fixed-dim": "#89d2de",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#f7feff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-container": "#e5eeff",
+                        "tertiary-container": "#467d83",
+                        "secondary-container": "#bacbff",
+                        "surface": "#f8f9ff",
+                        "on-surface": "#0b1c30",
+                        "secondary-fixed": "#dae2ff",
+                        "tertiary-fixed-dim": "#98d0d6",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-tertiary-fixed": "#002022",
+                        "surface-dim": "#cbdbf5",
+                        "on-secondary-fixed": "#031944",
+                        "background": "#f8f9ff",
+                        "outline": "#6f797b",
+                        "primary-container": "#317f8a",
+                        "on-surface-variant": "#3f484a",
+                        "on-tertiary-fixed-variant": "#0f4e54",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "lg": "48px",
+                        "margin-mobile": "16px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-bright dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none h-16">
+<div class="flex justify-between items-center h-full px-margin-desktop max-w-[1440px] mx-auto">
+<div class="flex items-center gap-sm">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">NeoPeds</span>
+</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Resources</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Team</a>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary font-bold border-b-2 border-primary pb-1" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-primary text-on-primary px-md py-xs rounded-lg font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95 duration-100 ease-in-out">
+                    Book Appointment
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-xl pb-xl">
+<!-- Hero Section -->
+<header class="relative bg-surface-container-low py-xl px-margin-desktop overflow-hidden">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl items-center relative z-10">
+<div>
+<span class="inline-block py-xs px-sm bg-tertiary-container/10 text-primary font-label-md text-label-md rounded-full mb-md">SUPPORTIVE CARE</span>
+<h1 class="font-display-lg text-display-lg text-on-background mb-md">Let's prioritize your child's health together.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Our clinical specialists are ready to provide the compassionate, expert care your little ones deserve. Reach out via our booking form or visit one of our local offices.</p>
+</div>
+<div class="relative h-[400px] rounded-xl overflow-hidden shadow-sm">
+<img alt="Clinical environment" class="w-full h-full object-cover" data-alt="A brightly lit, modern pediatric examination room featuring soft teal and white tones. A friendly atmosphere is conveyed through gentle ambient lighting and high-end medical equipment that looks non-intimidating. The space is clean and organized with clinical precision, echoing the NeoPeds brand identity of empathetic care and professional expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPk_2FlhOO0dSQ5NB79UA-WxvbppOVp12BsVTtm5UrAmOAXBubfxwJW1YAjEG5ZZJWRqp2HgDWO3kZcwtdRlQRQ7j-7WeqxQykhSlbVBTSZqKZ16P-gmswuVXtUyH7mUmLkIcuvXxZEUx0jxe7NAWsCM2qKdhXbpeS118q-3gO5EKoR0DnSKpCx60RJl8yU6NtaQMTlhy8aSe7v06dxbcnWv6e9euv8-tEqRc2DrrQhFCsPecxsbIJZgusqTtS1ZW-_0Ah6E0Z4Ad8"/>
+</div>
+</div>
+</header>
+<!-- Main Content: Bento Grid Layout -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop mt-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Contact Details Column -->
+<div class="lg:col-span-4 space-y-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant p-md rounded-xl">
+<h2 class="font-headline-sm text-headline-sm mb-md text-primary">Direct Contact</h2>
+<ul class="space-y-md">
+<li class="flex items-start gap-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Emergency Phone</p>
+<p class="font-headline-sm text-headline-sm text-on-background">1-800-NEOPEDS</p>
+</div>
+</li>
+<li class="flex items-start gap-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">General Inquiries</p>
+<p class="font-body-md text-body-md text-on-background">care@neopeds.medical</p>
+</div>
+</li>
+<li class="flex items-start gap-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Patient Portal Support</p>
+<p class="font-body-md text-body-md text-on-background">portal-help@neopeds.medical</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="bg-primary text-on-primary p-md rounded-xl">
+<h3 class="font-headline-sm text-headline-sm mb-sm">24/7 Neonatal Helpline</h3>
+<p class="font-body-sm text-body-sm opacity-90 mb-md">Immediate consultation for critical care cases and neonatal emergencies. We are always here when it matters most.</p>
+<button class="w-full bg-on-primary text-primary py-sm rounded-lg font-bold font-label-md text-label-md">Start Chat Now</button>
+</div>
+</div>
+<!-- Booking Form Column -->
+<div class="lg:col-span-8">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="bg-primary/5 p-md border-b border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-primary">Book a Consultation</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Please provide the necessary details for your pediatric appointment.</p>
+</div>
+<div class="p-md">
+<form class="space-y-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface">Patient Name</label>
+<input class="w-full h-11 border-outline-variant rounded-lg focus:ring-primary/10 focus:border-primary transition-all" placeholder="Legal name of patient" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface">Service Type</label>
+<select class="w-full h-11 border-outline-variant rounded-lg focus:ring-primary/10 focus:border-primary transition-all">
+<option>General Neonatal Checkup</option>
+<option>Pediatric Consultation</option>
+<option>Immunization Services</option>
+<option>Developmental Screening</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface">Preferred Date</label>
+<input class="w-full h-11 border-outline-variant rounded-lg focus:ring-primary/10 focus:border-primary transition-all" type="date"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface">Preferred Time</label>
+<select class="w-full h-11 border-outline-variant rounded-lg focus:ring-primary/10 focus:border-primary transition-all">
+<option>Morning (8AM - 12PM)</option>
+<option>Afternoon (12PM - 4PM)</option>
+<option>Late Afternoon (4PM - 6PM)</option>
+</select>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface">Additional Notes</label>
+<textarea class="w-full border-outline-variant rounded-lg focus:ring-primary/10 focus:border-primary transition-all" placeholder="Any specific symptoms or history our doctors should know?" rows="4"></textarea>
+</div>
+<div class="flex items-center gap-sm">
+<input class="rounded text-primary focus:ring-primary" id="terms" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface-variant" for="terms">I agree to the privacy policy regarding clinical data handling.</label>
+</div>
+<button class="w-full h-11 bg-primary text-on-primary rounded-lg font-bold font-label-md text-label-md hover:bg-primary-container transition-all active:scale-95">
+                                    Request Appointment
+                                </button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Locations Section -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop mt-xl">
+<div class="text-center mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-background">Our Medical Centers</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-sm">State-of-the-art facilities designed for comfort and precision.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Location 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col md:flex-row shadow-sm hover:shadow-md transition-shadow">
+<div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+<img alt="Boston Medical Center" class="w-full h-full object-cover grayscale-[0.5] hover:grayscale-0 transition-all duration-500" data-alt="A clean, aerial map-like view of a modern medical district in Boston, showing lush greenery interspersed between sleek clinical buildings. The map aesthetic is clean, with minimal street markings and soft, professional colors like navy and teal. It emphasizes accessibility and a central location for healthcare excellence." data-location="Boston" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4p5esUnRXsg2-142AO1yFIcHpqtInaSKTY6cVhuqcBXWWaQ0-taetjziumlQZPLkBK95zS3kVlVTbs3ipQDZvwONgMCv8EFJp-OpOU_-dK2Jk-c0HZzMCBWG9Z1hy-7S2QDmzRKckwtnPHEreWOssnTSKQ7K_gHjl5flnE5dOEsCET7E31n5RwxhkgRGpOUz9wVAvPn_o-Lnhrg4DZSl_i78XkTzkLnLe6WDB8geSXEy7qc0Z7hSK2UXEAJUTQ-WkpAIWx6klSlRz"/>
+</div>
+<div class="w-full md:w-1/2 p-md flex flex-col justify-center">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-sm">NeoPeds Central</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md leading-relaxed">
+                            125 Medical Plaza Dr.<br/>
+                            Boston, MA 02118<br/>
+                            (617) 555-0123
+                        </p>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<a class="text-primary font-bold font-label-md text-label-md underline" href="#">Get Directions</a>
+</div>
+</div>
+</div>
+<!-- Location 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col md:flex-row shadow-sm hover:shadow-md transition-shadow">
+<div class="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+<img alt="Cambridge Research Hub" class="w-full h-full object-cover grayscale-[0.5] hover:grayscale-0 transition-all duration-500" data-alt="A sophisticated map view of the Cambridge research corridor, featuring high-contrast streets and specialized medical icons denoting pediatric facilities. The visual style is minimalist and corporate, utilizing a primary palette of teal and deep navy with light mode brightness to ensure clear navigation for medical professionals." data-location="Cambridge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASL_JgK_luPnRCPdK_5r3jn6AI88TUSxqO6OKouA4wHkZa3h7otKF_zqldK0gyNcVVntBz1ikia_GsziO89x-LPyOmGaincURdwqX9xpCJNm2LhyfchlP85FtPh5Unk1eqUtFD_0KD2QPdQ_QbUHY_e78W8rz4zv_LxsRyoNxg-bnaDsbIxhTP2D8xL_W_RSZ0sVQwE1JHLv9poboWpjQ_qTvpMCN9SWvJoi8Cd3LHEwCSSK0EqdVdjDeeTzciWK1pr4gj5BTufKs6"/>
+</div>
+<div class="w-full md:w-1/2 p-md flex flex-col justify-center">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-sm">Cambridge Research Hub</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md leading-relaxed">
+                            440 Innovation Way<br/>
+                            Cambridge, MA 02139<br/>
+                            (617) 555-0199
+                        </p>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<a class="text-primary font-bold font-label-md text-label-md underline" href="#">Get Directions</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-xl bg-inverse-surface dark:bg-on-background pt-lg pb-md">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-[1440px] mx-auto text-surface-bright dark:text-surface-variant">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary-fixed dark:text-primary-fixed-dim">NeoPeds</span>
+<p class="font-body-sm text-body-sm mt-md opacity-80">Empowering medical professionals with precise tools and empathetic care for the next generation.</p>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-md">Patient Care</h4>
+<ul class="space-y-sm font-body-sm text-body-sm">
+<li><a class="text-surface-variant dark:text-outline-variant hover:text-primary-fixed transition-colors" href="#">Patient Portal</a></li>
+<li><a class="text-surface-variant dark:text-outline-variant hover:text-primary-fixed transition-colors" href="#">Accessibility</a></li>
+<li><a class="text-surface-variant dark:text-outline-variant hover:text-primary-fixed transition-colors" href="#">Health Resources</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-md">Legal</h4>
+<ul class="space-y-sm font-body-sm text-body-sm">
+<li><a class="text-surface-variant dark:text-outline-variant hover:text-primary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-surface-variant dark:text-outline-variant hover:text-primary-fixed transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-md">Stay Informed</h4>
+<p class="font-body-sm text-body-sm mb-md">Join our clinical newsletter for updates.</p>
+<div class="flex">
+<input class="bg-surface-container-lowest/10 border-outline text-surface-bright rounded-l-lg w-full h-10 px-sm focus:ring-primary-fixed" placeholder="Medical Email" type="email"/>
+<button class="bg-primary-fixed text-on-primary-fixed px-md rounded-r-lg h-10 font-bold">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-margin-desktop mt-lg pt-md border-t border-outline/20">
+<p class="font-body-sm text-body-sm text-center md:text-left opacity-60">© 2024 NeoPeds Medical Resource. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

@@ -1,22 +1,114 @@
 @import "tailwindcss";
 
-:root {
-  --font-geist: "Geist", sans-serif;
+/* ── Custom layout utilities ── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
 }
 
-@theme inline {
-  --font-sans: var(--font-geist);
+.text-gradient-brand {
+  background: linear-gradient(135deg, #086670 0%, #4c5d8b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-@keyframes pulse-ring {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.45); }
-  50%       { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
-}
+@theme {
+  /* ── Font families ── */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-montserrat), system-ui, sans-serif;
 
-.pulse-dot {
-  animation: pulse-ring 2s infinite;
+  /* ── Font size scale ── */
+  --text-display-lg: 3rem;
+  --text-headline-lg: 2rem;
+  --text-headline-lg-mobile: 1.75rem;
+  --text-headline-md: 1.5rem;
+  --text-headline-sm: 1.25rem;
+  --text-body-lg: 1.125rem;
+  --text-body-md: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-label-md: 0.75rem;
+
+  /* ── Clinical Compassion color palette ── */
+  /* Primary — Teal */
+  --color-primary: #086670;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #317f8a;
+  --color-on-primary-container: #f7feff;
+  --color-primary-fixed: #a4eefb;
+  --color-primary-fixed-dim: #89d2de;
+  --color-on-primary-fixed: #001f24;
+  --color-on-primary-fixed-variant: #004f57;
+  --color-inverse-primary: #89d2de;
+  --color-surface-tint: #0e6873;
+
+  /* Secondary — Navy */
+  --color-secondary: #4c5d8b;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #bacbff;
+  --color-on-secondary-container: #445582;
+  --color-secondary-fixed: #dae2ff;
+  --color-secondary-fixed-dim: #b4c5f9;
+  --color-on-secondary-fixed: #031944;
+  --color-on-secondary-fixed-variant: #344571;
+
+  /* Tertiary — Deep Teal */
+  --color-tertiary: #2b646a;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #467d83;
+  --color-on-tertiary-container: #f5feff;
+  --color-tertiary-fixed: #b4ecf3;
+  --color-tertiary-fixed-dim: #98d0d6;
+  --color-on-tertiary-fixed: #002022;
+  --color-on-tertiary-fixed-variant: #0f4e54;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Surface hierarchy */
+  --color-background: #f8f9ff;
+  --color-on-background: #0b1c30;
+  --color-surface: #f8f9ff;
+  --color-on-surface: #0b1c30;
+  --color-on-surface-variant: #3f484a;
+  --color-surface-dim: #cbdbf5;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff4ff;
+  --color-surface-container: #e5eeff;
+  --color-surface-container-high: #dce9ff;
+  --color-surface-container-highest: #d3e4fe;
+  --color-surface-variant: #d3e4fe;
+  --color-inverse-surface: #213145;
+  --color-inverse-on-surface: #eaf1ff;
+
+  /* Outline */
+  --color-outline: #6f797b;
+  --color-outline-variant: #bec8ca;
+
+  /* ── Spacing scale ── */
+  --spacing-xs: 0.25rem;
+  --spacing-base: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1.5rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 5rem;
+  --spacing-margin-mobile: 1rem;
+  --spacing-margin-desktop: 4rem;
 }
